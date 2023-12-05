@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página web sin dockerizar</title>
+    <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet"> 
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'open sans';
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.titulo {
+    color: #642a73;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    height: 600px;
+    background: #bc4e9c;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(60, 29%, 92%, 0.459), hsla(214, 45%, 52%, 0.664)), url('https://i.pinimg.com/originals/df/51/0c/df510c2d2648dc643416078858f57863.jpg');
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(54, 30%, 88%, 0.459), hsla(198, 45%, 52%, 0.664)), url('https://i.pinimg.com/originals/df/51/0c/df510c2d2648dc643416078858f57863.jpg');
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav > a{
+    color:#fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration: underline;
+}
+
+header .textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.textos-header h1{
+    font-size: 50px;
+    color:#fff;
+}
+
+.textos-header h2{
+    font-size: 30px;
+    font-weight: 300;
+    color:#fff;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* About us */
+
+main .sobre-nosotros{
+    padding: 30px 0 60px 0;
+}
+.contenedor-sobre-nosotros{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.imagen-about-us{
+    width: 48%;
+}
+
+.sobre-nosotros .contenido-textos{
+    width: 48%;
+}
+
+.contenido-textos h3{
+    margin-bottom: 15px;
+}
+
+.contenido-textos h3 span{
+    background: #4d0686;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    margin-right: 5px;
+}
+
+.contenido-textos p{
+    padding: 0px 0px 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* Galeria */
+
+
+.portafolio{
+    background: #ffffff;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port{
+    width: 24%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(184, 91%, 27%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+/* Clients */
+
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards .card{
+    background: #dbd8cc;
+    display: flex;
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+.cards .card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: block;
+}
+
+.cards .card > .contenido-texto-card{
+    width: 60%;
+    color: #fff;
+}
+
+.cards .card > .contenido-texto-card p{
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+/*  Our team */
+
+.about-services{
+    background: #f2f2f2;
+    padding-bottom: 30px;
+}
+
+
+.servicio-cont{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.servicio-ind{
+    width: 28%;
+    text-align: center;
+}
+
+.servicio-ind img{
+    width: 90%;
+}
+
+.servicio-ind h3{
+    margin: 10px 0;
+}
+
+.servicio-ind p{
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* footer */
+
+footer{
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-foo{
+    text-align: center;
+}
+
+.content-foo h4{
+    color: #fff;
+    border-bottom: 3px solid #af20d3;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-foo p{
+    color: #ccc;
+}
+
+.titulo-final{
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+}
+
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+
+    .contenedor-sobre-nosotros{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 90%;
+    }
+
+    .imagen-about-us{
+        width: 90%;
+    }
+
+    /* Galeria */
+
+    .imagen-port{
+        width: 44%;
+    }
+
+    /* Clientes */
+
+    .cards{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards .card{
+        width: 90%;
+    }
+
+    .cards .card:first-child{
+        margin-bottom: 30px;
+    }
+
+    /* servicios */
+
+    .servicio-cont{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .servicio-ind{
+        width: 100%;
+        text-align: center;
+    }
+
+    .servicio-ind:nth-child(1), .servicio-ind:nth-child(2){
+        margin-bottom: 60px;
+    }
+
+    .servicio-ind img{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:500px){
+    nav{
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+
+    nav > a{
+        margin-right: 5px;
+    }
+
+    .textos-header h1{
+        font-size: 35px;
+    }
+
+    .textos-header h2{
+        font-size: 20px;
+    }
+
+    /* ABOUT US */
+
+    .imagen-about-us{
+        margin-bottom: 60px;
+        width: 99%;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 95%;
+    }
+
+    /* Galeria */
+
+    .imagen-port{
+        width: 95%;
+    }
+
+    /* Clients */
+
+    .cards .card{
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards .card img{
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Footer */
+
+    .contenedor-footer{
+        flex-direction: column;
+        border: none;
+    }
+
+    .content-foo{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .content-foo h4{
+        border: none;
+    }
+
+    .content-foo p{
+        color: #ccc;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px;
+    }
+
+    .titulo-final{
+        font-size: 20px;
+    }
+}
+
+
+
+.footer{
+    background-color: #1D293F;
+}
+
+.footer__title{
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.footer__title, .footer__newsletter{
+    color: #fff;
+}
+
+
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+}
+
+.nav--footer{
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+.nav__link--footer{
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+.footer__inputs{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.footer__input{
+    background-color: #fff;
+    height: 50px;
+    display: block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+}
+
+.footer__submit{
+    margin-left: auto;
+    display: inline-block;
+    height: 50px;
+    padding: 0 20px ;
+    background-color: #2091F9;
+    border: none;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.footer__copy{
+    --padding-container: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.footer__copyright{
+    font-weight: 300;
+}
+
+.footer__icons{
+    margin-bottom: 10px;
+}
+
+.footer__img{
+    width: 30px;
+}
+
+
+
+
+ /* Estilos generales para la sección de clientes */
+ .clientes {
+            background-color: #f4f4f4;
+            padding: 50px 0;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #333;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Estilos para las tarjetas de clientes */
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            border-radius: 50%;
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el reproductor de audio y botones */
+        audio {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5%;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+</style>
+
+<body>
+    <header>
+        <nav>
+            <a href="#in">Inicio</a>
+            <a href="#ace">Acerca de</a>
+            <a href="#porta">Portafolio</a>
+            <a href="#ser">Servicios</a>
+            <a href="#we">Contacto</a>
+            <a href="#ll">Llamar</a>
+        </nav>
+        <section id="in" class="textos-header">
+            <h1>Escucharas la mejor Musica</h1>
+            <h2>Desde Rock hasta Pop o Vallenato  </h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg></div>
+    </header>
+    <main>
+        <section id="ace" class="contenedor sobre-nosotros">
+            <h2 class="titulo">Nuestras Disqueras Y Patrocinios</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img src="https://resources.claroshop.com/medios-plazavip/s2/10252/1174625/5d43c610d0c4c-audifonos-gamer-beexcellent-luz-led-con-microfono-camo-1600x1600.jpg" alt="" class="imagen-about-us">
+                <div class="contenido-textos">
+                    <h3><span>1</span>Los mejores productos</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veniam eius aspernatur ad
+                        consequuntur aperiam minima sed dicta odit numquam sapiente quam eum, architecto animi pariatur,
+                        velit doloribus laboriosam ut.</p>
+                    <h3><span>2</span>Los mejores productos</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veniam eius aspernatur ad
+                        consequuntur aperiam minima sed dicta odit numquam sapiente quam eum, architecto animi pariatur,
+                        velit doloribus laboriosam ut.</p>
+                </div>
+            </div>
+        </section>
+        <section id="porta" class="portafolio">
+            <div class="contenedor">
+                <h2 class="titulo">Musica </h2>
+                <div class="galeria-port">
+                    <div class="imagen-port">
+                        <img src="http://thesource.com/wp-content/uploads/2016/01/kanye-west-31.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://wallpapercave.com/wp/wp6888904.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://mariana-gutierrez.web.app/img/index/music_icon.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://www.sdpnoticias.com/resizer/wmk1ofVvOyqbNv-BOfnHknLe2gQ=/1280x1554/filters:format(jpg):quality(90)/cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/MHY4HA2EBJDA7AMBVRE7XTJLNM.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://www.eluniversal.com.co/sites/default/files/201410/facetas-diomedes2.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://mariana-gutierrez.web.app/img/index/music_icon.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://i.pinimg.com/originals/67/e2/8c/67e28c3ae4b07528e2696e1b50e61ef0.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="http://images4.fanpop.com/image/photos/21300000/Bad-Era-Photoshoot-michael-jackson-21334290-1911-2560.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://mariana-gutierrez.web.app/img/index/music_icon.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://wallpapercave.com/wp/wp6078524.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://s.yimg.com/ny/api/res/1.2/YcZiCZvMtzd4DZ2Ovss5Dw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MA--/https://media.zenfs.com/en/billboard_547/e205dc022abccf6108e8e02de73c2aca" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://lastfm.freetls.fastly.net/i/u/ar0/01e0938b5d3f0331ad2e3e06b5a54122.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://mariana-gutierrez.web.app/img/index/music_icon.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://www.eldia.es/hemeroteca-eldia/imagenes/2017/11/02/1509643967628k.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://i.pinimg.com/736x/eb/c2/53/ebc2532920c1e1da45d089c8131f9f9f.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://mariana-gutierrez.web.app/img/index/music_icon.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="https://www.fmdos.cl/wp-content/uploads/2021/02/139604674_255452279328633_492055308039976762_n.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="https://cdn.pixabay.com/photo/2019/08/11/18/27/icon-4399630_640.png" alt="">
+                            <p>Nuestro trabajo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </section>
+        <section id="ser" class="clientes contenedor">
+            <h2 class="titulo">Nuestros Ultimos Exitos en Musica </h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://wallpapercave.com/wp/wp5135834.jpg" alt="">
+                    <div class="contenido-texto-card">
+                        <audio controls>
+                            <source src="static/musics/d4vd.mp3" type="audio/mp3">
+                            Tu navegador no soporta la etiqueta de audio.
+                        </audio>
+                        <br><br>
+                        <a href="static/pdfs/ola.pdf" download="ola.pdf">
+                            <button>Descargar PDF</button>
+                        </a>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.coupdemainmagazine.com/sites/default/files/styles/full_width/public/article/18934/img-18934-1376666449.jpg?itok=XuNmi56s" alt="">
+                    <div class="contenido-texto-card">
+                        <audio controls>
+                            <source src="static/musics/d4vd.mp3" type="audio/mp3">
+                            Tu navegador no soporta la etiqueta de audio.
+                        </audio>
+                        <br><br>
+                        <a href="static/pdfs/ola.pdf" download="ola.pdf">
+                            <button>Descargar PDF</button>
+                        </a>
+                    </div>
+                </div>
+                <br>
+                
+               
+            </div>
+        
+
+
+        <section class="clientes contenedor">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://nlfab.com/wp-content/uploads/2020/09/nectar.jpg" alt="">
+                    <div class="contenido-texto-card">
+                        <audio controls>
+                            <source src="static/musics/d4vd.mp3" type="audio/mp3">
+                            Tu navegador no soporta la etiqueta de audio.
+                        </audio>
+                        <br><br>
+                        <a href="static/pdfs/ola.pdf" download="ola.pdf">
+                            <button>Descargar PDF</button>
+                        </a>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://akns-images.eonline.com/eol_images/Entire_Site/2021330/rs_1200x1200-210430163406-1200-the-weeknd.jpg?fit=around%7C1080:1080&output-quality=90&crop=1080:1080;center,top" alt="">
+                    <div class="contenido-texto-card">
+                        <audio controls>
+                            <source src="static/musics/d4vd.mp3" type="audio/mp3">
+                            Tu navegador no soporta la etiqueta de audio.
+                        </audio>
+                        <br><br>
+                        <a href="static/pdfs/ola.pdf" download="ola.pdf">
+                            <button>Descargar PDF</button>
+                        </a>
+                    </div>
+                </div>
+                <br>
+                
+               
+            </div>
+        </section>
+    
+        <section id="we" class="about-services">
+            <div class="contenedor">
+                <h2 class="titulo">Nuestros servicios</h2>
+                <div class="servicio-cont">
+                    <div class="servicio-ind">
+                        <img src="https://img2.freepng.es/20190721/kih/kisspng-image-astronaut-picsart-photo-studio-design-music-5d34b843240192.6345748315637361311475.jpg" alt="">
+                        <h3>Paz en ti</h3>
+                        <p>El rock, rebelde y atemporal, ha sido un catalizador de cambios culturales y sociales desde sus raíces en la década de 1950. Con sus icónicas guitarras distorsionadas y letras que desafían las normas</p>
+                    </div>
+                    <div class="servicio-ind">
+                        <img src="http://gadgetsgirls.com/wp-content/uploads/2015/09/Steelseries-Siberia-v2-purple-angle.jpg" alt="">
+                        <h3>Sentir La musica </h3>
+                        <p>El jazz, un género musical que floreció a fines del siglo XIX en Nueva Orleans, ha evolucionado de manera fascinante a lo largo de los años. Caracterizado por su improvisación,</p>
+                    </div>
+                    <div class="servicio-ind">
+                        <img src="https://images.vexels.com/media/users/3/183640/isolated/preview/af82c90701505ee70e1cab91ffeb3139-simbolo-de-la-musica-pop-de-microfono.png" alt="">
+                        <h3>Disfruta se feliz </h3>
+                        <p>La música latina, vibrante y llena de pasión, ha conquistado corazones en todo el mundo. Desde la salsa picante hasta los ritmos sensuales del reguetón, este género abarca una rica diversidad de estilos. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="footer__container container">
+            <nav class="nav nav--footer">
+                <h2 class="footer__title">Basica Dockerizada   </h2>
+               
+                
+            </nav>
+
+            <form class="footer__form"    action="https://formspree.io/f/xoqoonno"
+            method="POST">
+          
+                <h2 class="footer__newsletter">Preguntas Y Comentarios </h2>
+                <div class="footer__inputs">
+                    <input type="email" placeholder="Email:" class="footer__input" name="_replyto">
+                    <br><br>
+                    <label>
+                       
+                        <textarea name="message" placeholder="comentarios:" class="footer__input"></textarea>
+                      </label>
+                      <br>
+                      <br>
+                    <input type="submit" value="Comentar !!!" class="footer__submit">
+                    <br>
+                </div>
+            </form>
+
+
+
+            
+        </section>
+
+        <section id="ll" class="footer__copy container">
+            <div class="footer__social">
+                <a href="#" class="footer__icons"><img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-1-2.png" class="footer__img"></a>
+                <a href="#" class="footer__icons"><img src="https://clipground.com/images/ig-logo-2.png" class="footer__img"></a>
+                <a href="#" class="footer__icons"><img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1.png" class="footer__img"></a>
+            </div>
+
+            <h3 class="footer__copyright">Derechos reservados &copy; Andres de Avila </h3>
+            <h3 class="footer__copyright">Trabajo Basica Dockerizada Git-V1..1 &copy; Ficha: 2558346  </h3>
+
+        </section>
+    </footer>
+
+</body>
+
+</html>
